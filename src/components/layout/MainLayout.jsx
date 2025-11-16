@@ -13,7 +13,7 @@ export default function MainLayout({
   onSelectTipo,
   onSearchSelect,
 }) {
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
   const sidebarWidth = useMemo(
     () => (sidebarCollapsed ? COLLAPSED_WIDTH : EXPANDED_WIDTH),
     [sidebarCollapsed]
