@@ -1,6 +1,11 @@
-export const DATA_URL = "[REMOVED_DATA_URL]";
+export const DATA_URL = process.env.NEXT_PUBLIC_DATA_URL || process.env.DATA_URL;
 
 export async function fetchScuole() {
+  if (!DATA_URL) {
+    throw new Error(
+      "DATA_URL non impostata. Aggiungi NEXT_PUBLIC_DATA_URL o DATA_URL nel tuo file .env.local"
+    );
+  }
   const res = await fetch(DATA_URL, { cache: "no-store" });
   if (!res.ok) {
     throw new Error("Impossibile caricare i dati dalla sorgente Firebase");
